@@ -95,14 +95,19 @@ const Feeds = ({ imageSrc }) => {
     <div className="feeds">
       {user ? (
         <div className="profile-header">
-          <Link to="/profile">
+          <Link to="/profile" style={{ margin: '0' }}>
             <img
-              src={user.profilePicture || '/default-profile.png'}
-              alt="User Profile"
+              src={user.profilePicture}
+              alt=""
               style={{ width: '50px', height: '50px', borderRadius: '50%' }}
             />
           </Link>
-          <p>Welcome Back, <span>{user.username}</span></p>
+          <p style={{ margin: '0', fontFamily: 'monospace', color: 'grey' }}>
+            Welcome Back,<br />
+            <span style={{ fontWeight: 'bold', fontSize: '30px', color: 'black' }}>
+              {user.username}
+            </span>
+          </p>
         </div>
       ) : (
         <p>Loading user profile...</p>
@@ -116,7 +121,7 @@ const Feeds = ({ imageSrc }) => {
         </Link>
       </div>
 
-      <h1>Feeds</h1>
+      <h1 style={{ margin: '10% 0 10% 0' }}>Feeds</h1>
 
       {posts.length === 0 ? (
         <p>Add your First Post!</p>
@@ -135,22 +140,35 @@ const Feeds = ({ imageSrc }) => {
               }}
             >
               <div className="post-header">
-                <img
-                  src={user.profilePicture || '/default-profile.png'}
-                  alt="User"
-                  style={{ width: '50px', height: '50px', borderRadius: '50%' }}
-                />
-                <div>
-                  <h4>{user.username}</h4>
-                  <p>{new Date(post.createdAt).toLocaleString()}</p>
+                <div className="post-title">
+                  <img
+                    src={user.profilePicture}
+                    alt="User"
+                    style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+                  />
+                  <p style={{ width: '200px' }}>
+                    {user.username}
+                    <br />
+                    <span className="timestamp">
+                      {new Date(post.createdAt).toLocaleString("en-IN", {
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })}
+                    </span>
+                  </p>
                 </div>
-                <button onClick={() => handleToggleMenu(post.id)} className='like-btn'>
+                <button onClick={() => handleToggleMenu(post.id)} className="like-btn">
                   <img src={More} alt="Options" style={{ width: '20px' }} />
                 </button>
                 {activeMenuPostId === post.id && (
                   <div className="menu">
-                    <button onClick={() => navigate(`/editpost/${post.id}`)}>Edit</button>
-                    <button onClick={() => handleDeletePost(post.id)}>Delete</button>
+                    <button className='menu-btn' onClick={() => navigate(`/editpost/${post.id}`)}>Edit</button>
+                    <hr/>
+                    <button className='menu-btn' onClick={() => handleDeletePost(post.id)}>Delete</button>
                   </div>
                 )}
               </div>
@@ -163,13 +181,28 @@ const Feeds = ({ imageSrc }) => {
                 />
               )}
               <div className="post-actions">
-                <button onClick={() => handleLikePost(post.id)} className='like-btn'>
-                  <img src={Like} alt="Like" style={{ width: '20px' }} /> {post.likes || 0}
+                <button
+                  onClick={() => handleLikePost(post.id)}
+                  className="like-btn"
+                  style={{ margin: '0' }}
+                >
+                  <img src={Like} alt="Like" style={{ width: '30px' }} /> {post.likes || 0}
                 </button>
-                <button onClick={() => setIsShareOpen(true)} style={{background:postBackgroundColors[post.id]}} className=''>
-                  <img src={ShareIcon} alt="Share" />
-                  Share
+                <Link to='/share' style={{margin:'0', textDecoration:'none'}}>
+                <button
+                  onClick={() => setIsShareOpen(true)}
+                  style={{
+                    background: postBackgroundColors[post.id],
+                    border: `1px solid ${buttonColor}`,
+                    margin: '0',
+                  }}
+                  className="share-btn"
+                >
+                  <img src={ShareIcon} alt="Share" style={{ margin: '0' }} />
+                  SHARE
                 </button>
+                </Link>
+                
               </div>
             </div>
           ))

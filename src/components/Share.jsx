@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import TwitterIcon from '../assets/img/twitter.svg'; // Add appropriate icon paths
 import FacebookIcon from '../assets/img/facebook.svg';
 import RedditIcon from '../assets/img/reddit.svg';
@@ -15,33 +16,44 @@ const Share = () => {
     <div className="share-modal">
       <div className="share-modal-content">
         <h3>Share post</h3>
+        <Link to='/feed'>
         <button className="close-btn">
           &times;
         </button>
+        </Link>
+        
         <div className="share-icons">
           <a href="https://twitter.com/share" target="_blank" rel="noopener noreferrer">
             <img src={TwitterIcon} alt="Twitter" />
+            Twitter
           </a>
           <a href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener noreferrer">
             <img src={FacebookIcon} alt="Facebook" />
+            Facebook
           </a>
           <a href="https://reddit.com/submit" target="_blank" rel="noopener noreferrer">
             <img src={RedditIcon} alt="Reddit" />
+            Reddit
           </a>
           <a href="https://discord.com/share" target="_blank" rel="noopener noreferrer">
             <img src={DiscordIcon} alt="Discord" />
+            Discord
           </a>
           <a href="https://wa.me" target="_blank" rel="noopener noreferrer">
             <img src={WhatsAppIcon} alt="WhatsApp" />
+            WhatsApp
           </a>
           <a href="https://www.messenger.com/t" target="_blank" rel="noopener noreferrer">
             <img src={MessengerIcon} alt="Messenger" />
+            Messenger
           </a>
           <a href="https://t.me/share/url" target="_blank" rel="noopener noreferrer">
             <img src={TelegramIcon} alt="Telegram" />
+            Telegram
           </a>
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
             <img src={InstagramIcon} alt="Instagram" />
+            Instagram
           </a>
         </div>
       </div>

@@ -46,7 +46,7 @@ const CreatePost = () => {
   return (
     <div className='new-post'>
 
-      <p className='newpost-p'><Link to="/feed"><img src={Back} alt="" /></Link>New Post</p>
+      <div className='newpost-div'><Link to="/feed"><img src={Back} alt=""/></Link>New Post</div>
 
       <textarea
         value={postContent}
