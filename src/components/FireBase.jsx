@@ -1,9 +1,8 @@
 // Import the necessary Firebase functions
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';  // Import Firestore
 import { getStorage } from "firebase/storage";
-
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -22,6 +21,9 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and Google Provider
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
+
+// Use redirect method for Google Sign-In
+signInWithRedirect(auth, googleProvider);
 
 // Initialize Firestore
 export const db = getFirestore(app);
