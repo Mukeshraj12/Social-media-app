@@ -3,7 +3,7 @@
 A modern social media application built with React, Node.js, and MongoDB. This app allows users to share posts, like content, and interact with others in real-time.
 
 ## 🚀 Live Demo
-🔗 [Deployed Application](#) *(https://vercel.com/mukesh-rajs-projects/social-media-app)*
+🔗 [Deployed Application](#) (https://vercel.com/mukesh-rajs-projects/social-media-app)
 
 ---
 
@@ -62,4 +62,4 @@ This project is licensed under the MIT License.
 
 ### 🎯 Author
 👤 **Mukesh Raj**  
-🔗 [GitHub](https://github.com/Mukeshraj12) | [LinkedIn](#) *(https://www.linkedin.com/in/mukeshraj-arumugam/)*
+🔗 [GitHub](https://github.com/Mukeshraj12) | [LinkedIn](#) (https://www.linkedin.com/in/mukeshraj-arumugam/)
