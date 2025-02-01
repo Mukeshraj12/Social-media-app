@@ -45,7 +45,7 @@ const EditPost = () => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h2>Edit Post</h2>
       {post ? (
         <>
@@ -65,7 +65,7 @@ const EditPost = () => {
             <img
               src={postImage}
               alt="Selected"
-              style={{ maxWidth: '100%', marginBottom: '10px' }}
+              style={{ Width: '300px', height: '300px', marginBottom: '10px' }}
             />
           )}
           <br />

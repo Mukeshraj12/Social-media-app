@@ -4,6 +4,7 @@ import More from '../assets/img/more.png';
 import Like from '../assets/img/HiHeart.png';
 import ShareIcon from '../assets/img/navigation-2.png';
 import Plus from '../assets/img/BsPlusLg.svg';
+import Share from '../components/Share';
 
 // Helper function to extract the dominant color from an image
 const getDominantColor = (imageSrc, callback) => {
@@ -69,6 +70,14 @@ const Feeds = ({ imageSrc }) => {
     }
   }, [imageSrc]);
 
+  useEffect(() => {
+    if (isShareOpen) {
+      document.body.style.overflow = "hidden"; // Disable scrolling
+    } else {
+      document.body.style.overflow = "auto"; // Enable scrolling
+    }
+  }, [isShareOpen]);
+
   const handleToggleMenu = (postId) => {
     setActiveMenuPostId((prev) => (prev === postId ? null : postId));
   };
@@ -87,12 +96,10 @@ const Feeds = ({ imageSrc }) => {
     setPosts(updatedPosts);
   };
 
-  const handleCloseShare = () => {
-    setIsShareOpen(false);
-  };
+
 
   return (
-    <div className="feeds">
+    <div className="container"><br />
       {user ? (
         <div className="profile-header">
           <Link to="/profile" style={{ margin: '0' }}>
@@ -167,7 +174,7 @@ const Feeds = ({ imageSrc }) => {
                 {activeMenuPostId === post.id && (
                   <div className="menu">
                     <button className='menu-btn' onClick={() => navigate(`/editpost/${post.id}`)}>Edit</button>
-                    <hr/>
+                    <hr />
                     <button className='menu-btn' onClick={() => handleDeletePost(post.id)}>Delete</button>
                   </div>
                 )}
@@ -177,7 +184,8 @@ const Feeds = ({ imageSrc }) => {
                 <img
                   src={post.imageUrl || '/default-image.png'}
                   alt="Post Content"
-                  style={{ width: '100%', borderRadius: '10px' }}
+                  style={{ width: '300px', height: '300px', borderRadius: '10px' }}
+                  className='post-img'
                 />
               )}
               <div className="post-actions">
@@ -188,31 +196,27 @@ const Feeds = ({ imageSrc }) => {
                 >
                   <img src={Like} alt="Like" style={{ width: '30px' }} /> {post.likes || 0}
                 </button>
-                <Link to='/share' style={{margin:'0', textDecoration:'none'}}>
-                <button
-                  onClick={() => setIsShareOpen(true)}
-                  style={{
-                    background: postBackgroundColors[post.id],
-                    border: `1px solid ${buttonColor}`,
-                    margin: '0',
-                  }}
-                  className="share-btn"
-                >
-                  <img src={ShareIcon} alt="Share" style={{ margin: '0' }} />
-                  SHARE
-                </button>
+                <Link to='' style={{ margin: '0', textDecoration: 'none' }}>
+                  <button
+                    onClick={() => setIsShareOpen(true)}
+                    style={{
+                      background: postBackgroundColors[post.id],
+                      border: `1px solid ${buttonColor}`,
+                      margin: '0',
+                    }}
+                    className="share-btn"
+                  >
+                    <img src={ShareIcon} alt="Share" style={{ margin: '0' }} />
+                    SHARE
+                  </button>
                 </Link>
-                
+                {isShareOpen && <Share onClose={() => setIsShareOpen(false)} />}
               </div>
             </div>
           ))
       )}
 
-      {isShareOpen && (
-        <div className="share-modal">
-          <button onClick={handleCloseShare}>Close</button>
-        </div>
-      )}
+
     </div>
   );
 };

@@ -44,20 +44,18 @@ const CreatePost = () => {
   };
 
   return (
-    <div className='new-post'>
+    <div className='container'>
 
-      <div className='newpost-div'><Link to="/feed"><img src={Back} alt=""/></Link>New Post</div>
+      <div className='newpost-div'><Link to="/feed"><img src={Back} alt="" /></Link>New Post</div>
 
       <textarea
         value={postContent}
         onChange={(e) => setPostContent(e.target.value)}
         placeholder="What's on your mind?"
         className='post-textarea'
-      />
+      /><br />
       <label htmlFor="file" style={{ cursor: "pointer" }}>
-        <i>
-          <img src={File} alt="Upload Icon" />
-        </i>
+        <img src={File} alt="Upload Icon" />
         Choose the File
         <input
           type="file"
@@ -73,7 +71,7 @@ const CreatePost = () => {
         />
 
       </label>
-      <span style={{ color: "blue", marginLeft: "10px", Width: "400px",overflowWrap:"break-word" }}>
+      <span style={{ color: "blue", marginLeft: "10px", Width: "400px", overflowWrap: "break-word" }}>
         <em>{fileName || "No file chosen"}</em>
       </span>
 

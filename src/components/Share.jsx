@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import TwitterIcon from '../assets/img/twitter.svg'; // Add appropriate icon paths
 import FacebookIcon from '../assets/img/facebook.svg';
 import RedditIcon from '../assets/img/reddit.svg';
@@ -9,19 +8,17 @@ import MessengerIcon from '../assets/img/messenger.svg';
 import TelegramIcon from '../assets/img/telegram.svg';
 import InstagramIcon from '../assets/img/instagram.svg';
 
-const Share = () => {
+const Share = ({ onClose }) => {
   
 
   return (
-    <div className="share-modal">
-      <div className="share-modal-content">
-        <h3>Share post</h3>
-        <Link to='/feed'>
-        <button className="close-btn">
+    <div className="modal-overlay">
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        {/* ✅ Clicking X will close the popup */}
+        <button className="close-btn" onClick={onClose}>
           &times;
         </button>
-        </Link>
-        
+
         <div className="share-icons">
           <a href="https://twitter.com/share" target="_blank" rel="noopener noreferrer">
             <img src={TwitterIcon} alt="Twitter" />

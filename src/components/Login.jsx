@@ -42,13 +42,13 @@ const Login = () => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       console.log("Logged in as:", user.displayName);
-      
+
       // Save user data to localStorage
       localStorage.setItem('user', JSON.stringify({
         username: user.displayName,
         profilePicture: user.photoURL
       }));
-  
+
       // Navigate to Home page
       navigate('/feed');
     } catch (error) {
@@ -57,10 +57,10 @@ const Login = () => {
     }
   };
 
-  
-  
 
-  
+
+
+
 
   return (
     <>
@@ -77,20 +77,20 @@ const Login = () => {
       </div>
       <div className="login-btn">
         <div className="cam-icon">
-          <img src={CamIcon} alt="Camera Icon" style={{margin:"0",}} />
-          <h1 style={{margin:"0",}}>Vibesnap</h1>
-          <br/>
+          <img src={CamIcon} alt="Camera Icon" style={{ margin: "0", }} />
+          <h1 style={{ margin: "0", }}>Vibesnap</h1>
+          <br />
         </div>
-        <br/>
-        <p className="login-p" >Moments That Matter, Shared Forever</p><br/>
-        <br/>
+        <br />
+        <p className="login-p" >Moments That Matter, Shared Forever</p><br />
+        <br />
         <button
           onClick={handleGoogleLogin}
           disabled={loading}
           className="bg-blue-500 text-white px-6 py-2 rounded shadow"
         >
           <img src={Gicon} alt="" />
-          
+
           Continue with Google
         </button>
       </div>

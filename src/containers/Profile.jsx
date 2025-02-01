@@ -44,10 +44,10 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile-container" >
+    <div className="container" >
       {/* Profile Section */}
       <img
-        src={profilePicture || BackGround }
+        src={profilePicture || BackGround}
         alt="Background or Profile"
         className="bg-profile"
         onChange={handleProfilePictureChange}
@@ -69,7 +69,7 @@ const Profile = () => {
         <Link to="/editprofile" style={{}}>
           <button style={{}} className='profile-editbtn'>Edit Profile</button>
         </Link>
-        
+
       </div>
 
       {/* User Posts */}

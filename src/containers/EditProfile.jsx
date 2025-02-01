@@ -48,10 +48,10 @@ const EditProfile = () => {
     };
 
     return (
-        <div className="edit-profile-container">
+        <div className="container">
             {/* Background Section */}
             <img src={BackGround} className="bg-profile" alt="Background" />
-            <p className='newpost-p' style={{ position: 'absolute', top: 0, left: '365px', color: 'white' }}><Link to="/profile"><img src={Arrow} alt="" /></Link>Edit Profile</p>
+            <p className='newpost-p' style={{ position: 'absolute', top: '30px', left: '365px', color: 'white' }}><Link to="/profile"><img src={Arrow} alt="" /></Link>Edit Profile</p>
             {/* Editable Profile Details */}
             <div className="edit-profile-details">
                 <label htmlFor="profilePicture" className="edit-profile-picture-label">
@@ -70,8 +70,8 @@ const EditProfile = () => {
                 </label>
 
                 <label>
-                    <p style={{color:'grey'}}>Name</p>
-                    <br/>
+                    <p style={{ color: 'grey' }}>Name</p>
+                    <br />
                     <input
                         type="text"
                         value={username}
@@ -79,10 +79,10 @@ const EditProfile = () => {
                         className="edit-profile-input"
                     />
                 </label>
-<br/>
-<br/>
+                <br />
+                <br />
                 <label>
-                    <p style={{color:'grey'}}>Bio</p>
+                    <p style={{ color: 'grey' }}>Bio</p>
                     <textarea
                         value={bio}
                         onChange={(e) => setBio(e.target.value)}
@@ -92,7 +92,7 @@ const EditProfile = () => {
                 </label>
 
                 {/* Buttons */}
-                <button onClick={handleSaveChanges} className="newpost-button" style={{right: '360px'}}>
+                <button onClick={handleSaveChanges} className="newpost-button" >
                     SAVE
                 </button>
 
