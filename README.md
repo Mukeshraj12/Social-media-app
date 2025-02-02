@@ -3,7 +3,7 @@
 A modern social media application built with React, Node.js, and MongoDB. This app allows users to share posts, like content, and interact with others in real-time.
 
 ## 🚀 Live Demo
-🔗 [Deployed Application](https://vercel.com/mukesh-rajs-projects/social-media-app)
+🔗 [Deployed Application](https://social-media-app-omega-five.vercel.app/)
 
 ---
 
