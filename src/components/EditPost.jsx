@@ -65,7 +65,7 @@ const EditPost = () => {
             <img
               src={postImage}
               alt="Selected"
-              style={{ Width: '300px', height: '300px', marginBottom: '10px' }}
+              style={{ Width: '300px', height: '300px', marginBottom: '10px', borderRadius:'25px' }}
             />
           )}
           <br />

@@ -48,10 +48,10 @@ const EditProfile = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container" id="profile-container">
             {/* Background Section */}
             <img src={BackGround} className="bg-profile" alt="Background" />
-            <p className='newpost-p' style={{ position: 'absolute', top: '30px', left: '365px', color: 'white' }}><Link to="/profile"><img src={Arrow} alt="" /></Link>Edit Profile</p>
+            <p className='newpost-p'><Link to="/profile"><img src={Arrow} alt="" /></Link>Edit Profile</p>
             {/* Editable Profile Details */}
             <div className="edit-profile-details">
                 <label htmlFor="profilePicture" className="edit-profile-picture-label">

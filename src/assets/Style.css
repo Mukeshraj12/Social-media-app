@@ -1,16 +1,21 @@
 * {
   margin: 0 auto;
   padding: 0;
+  outline: 0;
   box-sizing: border-box;
-  max-width: 450px;
+  max-width: 400px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .container {
-  max-width: 450px;
+  max-width: 400px;
   margin: 0 auto;
   padding: 0 10px;
   height: 120vh;
+  min-width: 370px;
+  border-left:1px solid #312c2c;
+  border-right: 1px solid #312f2f;
   /* overflow-x: hidden; */
 }
 
@@ -20,6 +25,19 @@
   column-count: 3;
   padding: 0 1px;
   position: relative;
+}
+
+img.gallery-img {
+  width: 80%;
+  border-radius: 15px;
+}
+div#gallery {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.gallery-item {
+  display: flex;
+  flex-direction: column;
 }
 
 button.bg-blue-500.text-white.px-6.py-2.rounded.shadow.hover\:bg-blue-600 {
@@ -42,17 +60,17 @@ button.bg-blue-500.text-white.px-6.py-2.rounded.shadow.hover\:bg-blue-600 {
   background-color: white;
   padding: 40px 66px 75px;
   border-radius: 50px 50px 0 0;
-  
-  width: 100%; /* Makes it fully responsive */
-  max-width: 450px; /* Restricts width */
-  left: 50%; /* Centers it */
-  transform: translateX(-50%); /* Adjusts centering */
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 img button {
   margin: 0;
 }
-
+.buttons{
+  position: relative;
+}
 
 button.bg-blue-500.text-white.px-6.py-2.rounded {
   background-color: #292929;
@@ -188,7 +206,7 @@ button.post-btn {
   border-radius: 47px;
   position: fixed;
   bottom: 60px;
-  left: 62%;
+  left: 60%;
   z-index: 100;
 }
 
@@ -234,6 +252,10 @@ textarea.post-textarea {
 
 /* Profile Page */
 
+#profile-container{
+  padding:0 !important;
+}
+
 .profile-img {
   position: absolute;
   top: 145px;
@@ -263,11 +285,12 @@ textarea.post-textarea {
 }
 
 button.logout-btn {
-  position: absolute;
+  position: fixed;
   bottom: 34px;
   left: 44%;
   padding: 10px 35px;
-  /* background: #9d3123; */
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: 1px solid #9d3123;
   border-radius: 40px;
   color: #9d3123;
@@ -288,6 +311,14 @@ button.logout-btn {
 .edit-profile-details {
   padding: 85px 10px;
 }
+
+p.newpost-p {
+  position: absolute;
+    top: 30px;
+    left: 20px;
+    color: white;
+}
+
 
 input.edit-profile-input {
   width: 370px;
@@ -386,4 +417,24 @@ textarea:focus {
 
 .page-link-section {
   margin-top: 20px;
+}
+
+@media screen and (min-width: 250px) and (max-width: 435px) {
+  button.post-btn {
+    left: 80%; 
+  }
+  p.newpost-p {
+    left: 20px;
+  }
+  .profile-img {
+    top:122px;
+    right: 20px; 
+}
+}
+
+
+@media screen and (min-width: 900px) and (max-width: 1300px) {
+  button.post-btn {
+    left: 61%; 
+  }
 }
