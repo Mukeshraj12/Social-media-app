@@ -27,7 +27,7 @@ const getDominantColor = (imageSrc, callback) => {
     const r = data[0];
     const g = data[1];
     const b = data[2];
-    const opacity = 0.1;
+    const opacity = 0.3;
 
     callback(`rgba(${r}, ${g}, ${b}, ${opacity})`);
   };
